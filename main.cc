@@ -16,7 +16,7 @@ int main() {
 	string currLine;
 
 	getline(file, currLine); //Skip 1st line, just labels the values
-
+	int currID = 0;
 	while(getline(file, currLine)) {
 		vector<string> params;
 		stringstream workingLine(currLine);
@@ -25,8 +25,9 @@ int main() {
 			params.push_back(currParam); //Add parameter to vector
 		}
 		if (params.size() == 9) { //Safety check in case broken row
-			allCrabs.push_back(Crab(params)); //push a new crab into the crabb vector
+			allCrabs.push_back(Crab(params, currID)); //push a new crab into the crabb vector
 			//allCrabs.at(allCrabs.size() - 1).printCrab();
+			currID++;
 		}
 
 	}
@@ -53,8 +54,10 @@ int main() {
 
 
 	setcolor(130,230,170);
-	crabSet.similarityCheck();
-
+	for (int i = 0; i < 20; i++) {
+		crabSet.similarityCheck();
+	}
+	crabSet.printSimilarity();
 
 	setcolor(255,255,255);
 	return 0;

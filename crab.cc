@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Crab::Crab(vector<string> params) {
+Crab::Crab(vector<string> params, int ID) {
 	//TODO
 	sex = params.at(0)[0];
 	length = stod(params.at(1));
@@ -13,6 +13,7 @@ Crab::Crab(vector<string> params) {
 	visceraWeight = stod(params.at(6)); //Organs
 	shellWeight = stod(params.at(7)); //Shell
 	age = stoi(params.at(8));
+	crabID = ID;	
 
 }
 
@@ -28,6 +29,11 @@ void Crab::printCrab() const {
 	cout << "Crab Age: " << age << endl << endl;
 }
 
+bool Crab::operator!=(const Crab& rhs) const {
+        return (crabID != rhs.getCrabID());
+    }
+
+
 
 char Crab::getSex() const{return sex;}
 double Crab::getLength()const {return length;}
@@ -38,3 +44,4 @@ double Crab::getShuckedWeight() const{return shuckedWeight;}
 double Crab::getVisceraWeight() const{return visceraWeight;}
 double Crab::getShellWeight()  const{ return shellWeight;}
 int Crab::getAge() const{ return age;}
+int Crab::getCrabID() const { return crabID;}

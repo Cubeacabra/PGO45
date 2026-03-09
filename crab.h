@@ -4,6 +4,7 @@
 
 class Crab {
 private: 
+	int crabID = -1;
 	char sex = 'U'; //For unset
 	double length = 0;
 	double diameter = 0;
@@ -15,7 +16,7 @@ private:
 	int age = 0;
 
 public:
-	Crab(std::vector<std::string> params);
+	Crab(std::vector<std::string> params, int ID);
 	void printCrab() const;
 	char getSex() const;
 	double getLength() const;
@@ -26,4 +27,6 @@ public:
 	double getVisceraWeight() const;
 	double getShellWeight() const;
 	int getAge() const;
+	int getCrabID() const;
+	bool operator!=(const Crab& rhs) const;
 };

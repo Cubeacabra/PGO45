@@ -1,6 +1,7 @@
 #include "dataset.h"
 #include <unordered_map>
 #include "/public/colors.h"
+#include <cmath>
 
 using namespace std;
 
@@ -67,10 +68,44 @@ void Dataset::ageStats() {
 
 
 void Dataset::similarityCheck() {
-	for (int i = 0; i < 100; i++) {
-		for (int j = 0; j < 100; j++) {
-			cout << "dog collar" << endl;
+	size_t crabCount = crabs.size();
+	
+	int currRun = 0;
+	//cout << crabCount * crabCount;
+
+	
+	for (int i = 0; i < crabCount; i++) {
+		for (int j = 0; j < crabCount; j++) {
+			Crab& crab1 = crabs.at(i);
+			Crab& crab2 = crabs.at(j);
+			if (crab1 != crab2) {
+				double currDiff = abs(crab1.getLength() - crab2.getLength()) + abs(crab1.getHeight() - crab2.getHeight()) + abs(crab1.getDiameter() - crab2.getDiameter());
+				if (minDiff > currDiff) {
+					minDiff = currDiff;
+					minDiffID1 = crab1.getCrabID();
+					minDiffID2 = crab2.getCrabID();
+
+				}
+				if (maxDiff < currDiff) {
+					maxDiff = currDiff;
+					maxDiffID1 = crab1.getCrabID();
+					maxDiffID2 = crab2.getCrabID();
+				}
+			}
+			currRun++;
+//			cout << "dog collar" << endl;
+			/*if (currRun % 1000 == 0) {
+				cout << "Trial " << currRun << "/" << crabCount*crabCount << endl;
+			}*/
 		}
 	}
-}
+	//cout << "The minimum difference between Crabs was " << minDiff << endl;
+	//TODO: Print details of crabs with min difference
+	//cout << "The maximum difference between Crabs was " << maxDiff << endl;
+	//TODO: Print details of crabs with max difference
 
+}
+void Dataset::printSimilarity() {
+	cout << "The minimum difference (in size) between crabs is " << minDiff << " between crabs " << minDiffID1 << " and " << minDiffID2 << endl;
+	cout << "The maximum difference (in size) between crabs is " << maxDiff << " between crabs " << maxDiffID1 << " and " << maxDiffID2 << endl;
+}
