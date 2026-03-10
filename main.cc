@@ -34,29 +34,36 @@ int main() {
 	
 	Dataset crabSet(allCrabs);
 
+
+
 	setcolor(255,215,0);
 	cout << "Welcome to the Crab Stats!" << endl;
+	setcolor(190,135,160);
+	cout << "Calculating Crab Stats..." << endl;
 
+	//Run The Data Analysis Functions
+	crabSet.sexStats();
+	crabSet.ageStats();
+	for (int i = 0; i < 10; i++) {
+		crabSet.sizeSimilarityCheck();
+		crabSet.weightSimilarityCheck();
+	}
+
+
+	//Print The Data
+	setcolor(255,215,0);
 	cout << "Amount of Crabs by Sex: " << endl;
 	setcolor(130,230,170);
-
-	crabSet.sexStats();
-
+	crabSet.printSexStats();
 
 	setcolor(255,215,0);
 	cout << "Amount of Crabs by Age" << endl;
 	setcolor(130,230,170);
-	crabSet.ageStats();
-
+	crabSet.printAgeStats();
 
 	setcolor(255,215,0);
-	cout << "A Crab's similarity is determined by how far close their height, diameter, and length are" << endl;
-
-
+	cout << "Crab Similarity" << endl;
 	setcolor(130,230,170);
-	for (int i = 0; i < 20; i++) {
-		crabSet.similarityCheck();
-	}
 	crabSet.printSimilarity();
 
 	setcolor(255,255,255);

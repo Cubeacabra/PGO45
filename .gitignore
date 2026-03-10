@@ -36,6 +36,15 @@
 *.exe
 *.out
 *.app
+baseAsan 
+baseNoAsan 
+O3Asan 
+O3NoAsan 
+OFastNoAsan 
+genPGO 
+usePGO 
+useLTO
+
 
 # debug information files
 *.dwo
