@@ -30,7 +30,7 @@ useLTO: main.o crab.o dataset.o
 
 #Making Object Files Is Normal
 main.o: main.cc crab.h dataset.h
-	g++ -c main.cc 
+	g++ -g -c main.cc 
 
 crab.o: crab.cc crab.h
 	g++ -c crab.cc

@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include "/public/colors.h"
 #include <cmath>
+#include "node.h"
 
 using namespace std;
 
@@ -35,13 +36,31 @@ void Dataset::ageStats() {
 		if (maxAge < currAge) { //Change maxAge If Needed
 			maxAge = currAge;
 		}	
-		ages[currAge]++;
+		ages[currAge].push_back(c);
+	}
+	checkSimilaritiesByAge();
+}
+
+void Dataset::checkSimilaritiesByAge() {
+	for (int i = minAge; i <= maxAge; i++) {
+		if (ages.find(i) != ages.end()) {
+			sizeSimilarityCheck(ages[i]);
+			weightSimilarityCheck(ages[i]);
+		}
+		//cout << "cow" << endl;
 	}
 }
 
 //Find What Crabs Are Closest In Size (Least Difference Between Their Heights, Diameters, And Lengths)
-void Dataset::sizeSimilarityCheck() {
-	size_t crabCount = crabs.size();
+void Dataset::sizeSimilarityCheck(vector<Crab>& crabsOneAge) {
+	size_t crabCount = crabsOneAge.size();
+	if (crabCount < 2) return;
+	SizeNode result;
+	
+	if (crabCount < 3000) {
+		result.minAge = crabsOneAge.at(0).getAge();
+		result.maxAge = crabsOneAge.at(0).getAge();
+	}
 
 	//DEBUG: For the for loop at the bottom
 	//int currRun = 0;
@@ -49,23 +68,21 @@ void Dataset::sizeSimilarityCheck() {
 	for (int i = 0; i < crabCount; i++) {
 		for (int j = 0; j < crabCount; j++) {
 			//Reference the crabs so not making unneccesary copies
-			Crab& crab1 = crabs.at(i);
-			Crab& crab2 = crabs.at(j);
+			Crab& crab1 = crabsOneAge.at(i);
+			Crab& crab2 = crabsOneAge.at(j);
 			if (crab1 != crab2) { //Don't check crab with itself
 				double currDiff = abs(crab1.getLength() - crab2.getLength()) + abs(crab1.getHeight() - crab2.getHeight()) + abs(crab1.getDiameter() - crab2.getDiameter());
-				if (minSizeDiff > currDiff) { //Update minDiff if needed
-					minSizeDiff = currDiff;
-					minSizeDiffID1 = crab1.getCrabID();
-					minSizeDiffID2 = crab2.getCrabID();
-
+				if (result.minSizeDiff > currDiff) { //Update minDiff if needed
+					result.minSizeDiff = currDiff;
+					result.minSizeDiffID1 = crab1.getCrabID();
+					result.minSizeDiffID2 = crab2.getCrabID();
 				} 
-				if (maxSizeDiff < currDiff) { //Update maxDiff if needed
-					maxSizeDiff = currDiff;
-					maxSizeDiffID1 = crab1.getCrabID();
-					maxSizeDiffID2 = crab2.getCrabID();
+				if (result.maxSizeDiff < currDiff) { //Update maxDiff if needed
+					result.maxSizeDiff = currDiff;
+					result.maxSizeDiffID1 = crab1.getCrabID();
+					result.maxSizeDiffID2 = crab2.getCrabID();
 				}
 			}
-
 			//DEBUG: To see if it's running all trials, but be warned, this heeeeeecka slows runtime
 			//currRun++;
 			/*if (currRun % 1000 == 0) {
@@ -73,11 +90,19 @@ void Dataset::sizeSimilarityCheck() {
 			}*/
 		}
 	}
+	sizeSimilarityResults.push_back(result);
 }
 
 //Find What Crabs Are Closest In Weight (Their Total Weight, Not Shucked Weight/Viscera Weight/Shell Weight)
-void Dataset::weightSimilarityCheck() {
-	size_t crabCount = crabs.size();
+void Dataset::weightSimilarityCheck(vector<Crab>& crabsOneAge) {
+	size_t crabCount = crabsOneAge.size();
+
+	if (crabCount < 2) return;
+	WeightNode result;
+	if (crabCount < 3000) {
+		result.minAge = crabsOneAge.at(0).getAge();
+		result.maxAge = crabsOneAge.at(0).getAge();
+	}
 
 	//DEBUG: For the for loop at the bottom
 	//int currRun = 0;
@@ -89,16 +114,17 @@ void Dataset::weightSimilarityCheck() {
 			Crab& crab2 = crabs.at(j);
 			if (crab1 != crab2) { //Don't check crab with itself
 				double currDiff = abs(crab1.getWeight() - crab2.getWeight()); 
-				if (minWeightDiff > currDiff) { //Update minDiff if needed
-					minWeightDiff = currDiff;
-					minWeightDiffID1 = crab1.getCrabID();
-					minWeightDiffID2 = crab2.getCrabID();
-
+				if (result.minWeightDiff > currDiff) { //Update minDiff if needed
+					result.minWeightDiff = currDiff;
+					result.minWeightDiffID1 = crab1.getCrabID();
+					result.minWeightDiffID2 = crab2.getCrabID();
+						
 				} 
-				if (maxWeightDiff < currDiff) { //Update maxDiff if needed
-					maxWeightDiff = currDiff;
-					maxWeightDiffID1 = crab1.getCrabID();
-					maxWeightDiffID2 = crab2.getCrabID();
+				if (result.maxWeightDiff < currDiff) { //Update maxDiff if needed
+					result.maxWeightDiff = currDiff;
+					result.maxWeightDiffID1 = crab1.getCrabID();
+					result.maxWeightDiffID2 = crab2.getCrabID();
+						
 				}
 			}
 			//DEBUG: To see if it's running all trials, but be warned, this heeeeeecka slows runtime
@@ -108,6 +134,7 @@ void Dataset::weightSimilarityCheck() {
 			}*/
 		}
 	}
+	weightSimilarityResults.push_back(result);
 }
 
 
@@ -155,7 +182,7 @@ void Dataset::printAgeStats() {
 			setcolor(130,230,170);
 			cout << "There are "; 
 			setcolor(110, 215, 225);
-			cout << ages[i];
+			cout << ages[i].size();
 			setcolor(130,230,170);
 			cout << " Crabs that are ";
 
@@ -166,7 +193,7 @@ void Dataset::printAgeStats() {
 			cout << " years old at a concentration of ";
 
 			setcolor(110, 215, 225);
-			cout << ages[i] << "/" << crabs.size() << " (" << (100.0 * ages[i]) / crabs.size() << "%)" << endl; 
+			cout << ages[i].size() << "/" << crabs.size() << " (" << (100.0 * ages[i].size()) / crabs.size() << "%)" << endl; 
 			setcolor(130,230,170);
 		}
 	}
@@ -175,77 +202,102 @@ void Dataset::printAgeStats() {
 //Print the size and Weight Similarity Data
 void Dataset::printSimilarity() {
 	//Printing is split up so important values stand out
-	
-	//Min Difference For Size
-	setcolor(130,230,170);
-	cout << "The minimum difference";
-	setcolor(110, 215, 225);
-	cout << " (in size) " ;
-	setcolor(130,230,170);
-	cout << " between crabs is ";
-	setcolor(110, 215, 225);
-	cout << minSizeDiff;
-	setcolor(130,230,170);
-	cout << " between crabs " ;
-	setcolor(110, 215, 225);
-	cout <<  minSizeDiffID1;
-	setcolor(130,230,170);
-	cout << " and ";
-	setcolor(110, 215, 225);
-	cout << minSizeDiffID2 << endl;
-
-	//Max Difference For Size
-	setcolor(130,230,170);
-	cout << "The maximum difference";
-	setcolor(110, 215, 225);
-	cout << " (in size) " ;
-	setcolor(130,230,170);
-	cout << " between crabs is ";
-	setcolor(110, 215, 225);
-	cout << maxSizeDiff;
-	setcolor(130,230,170);
-	cout << " between crabs " ;
-	setcolor(110, 215, 225);
-	cout <<  maxSizeDiffID1;
-	setcolor(130,230,170);
-	cout << " and ";
-	setcolor(110, 215, 225);
-	cout << maxSizeDiffID2 << endl;
+	//	cout << sizeSimilarityResults.size() << " SIZE OF SIM RESULTS " << endl;
+	//	cerr << "b4 loop, minAge is " << minAge << " and maxAge is " << maxAge << endl;
 
 
-	//Min Difference For Weight
-	setcolor(130,230,170);
-	cout << "The minimum difference";
-	setcolor(110, 215, 225);
-	cout << " (in weight) " ;
-	setcolor(130,230,170);
-	cout << " between crabs is ";
-	setcolor(110, 215, 225);
-	cout << minWeightDiff;
-	setcolor(130,230,170);
-	cout << " between crabs " ;
-	setcolor(110, 215, 225);
-	cout <<  minWeightDiffID1;
-	setcolor(130,230,170);
-	cout << " and ";
-	setcolor(110, 215, 225);
-	cout << minWeightDiffID2 << endl;
 
-	//Max Difference For Weight
-	setcolor(130,230,170);
-	cout << "The maximum difference";
-	setcolor(110, 215, 225);
-	cout << " (in weight) " ;
-	setcolor(130,230,170);
-	cout << " between crabs is ";
-	setcolor(110, 215, 225);
-	cout << maxWeightDiff;
-	setcolor(130,230,170);
-	cout << " between crabs " ;
-	setcolor(110, 215, 225);
-	cout <<  maxWeightDiffID1;
-	setcolor(130,230,170);
-	cout << " and ";
-	setcolor(110, 215, 225);
-	cout << minWeightDiffID2 << endl;
+	int resultIndex = 0;
+	bool seenAllCrabs = false;
+	for (int i = minAge; i <= maxAge; i++) {
+		if (ages.find(i) != ages.end()) {
+			if (resultIndex >= sizeSimilarityResults.size()) break;
+			setcolor(255,215,0);
+			if (sizeSimilarityResults.at(resultIndex).maxAge == -1) {
+				if (!seenAllCrabs) {
+					cout << "Similarity Between All Crabs" << endl;
+					seenAllCrabs = true;
+				} else {
+					continue;
+				}
+			} else {
+				cout << "Similarity of Crabs Aged " << sizeSimilarityResults.at(resultIndex).maxAge << endl;
+			}
+			//cout << "Similarity of Crabs Aged " << sizeSimilarityResults.at(resultIndex).minAge << endl;
+			//Min Difference For Size
+			setcolor(130,230,170);
+			cout << "The minimum difference";
+			setcolor(110, 215, 225);
+			cout << " (in size) " ;
+			setcolor(130,230,170);
+			cout << " between crabs is ";
+			setcolor(110, 215, 225);
+			cout << sizeSimilarityResults.at(resultIndex).minSizeDiff;
+			setcolor(130,230,170);
+			cout << " between crabs " ;
+			setcolor(110, 215, 225);
+			cout <<  sizeSimilarityResults.at(resultIndex).minSizeDiffID1;
+			setcolor(130,230,170);
+			cout << " and ";
+			setcolor(110, 215, 225);
+			cout << sizeSimilarityResults.at(resultIndex).minSizeDiffID2 << endl;
+
+
+			//Max Difference For Size
+			setcolor(130,230,170);
+			cout << "The maximum difference";
+			setcolor(110, 215, 225);
+			cout << " (in size) " ;
+			setcolor(130,230,170);
+			cout << " between crabs is ";
+			setcolor(110, 215, 225);
+			cout << sizeSimilarityResults.at(resultIndex).maxSizeDiff;
+			setcolor(130,230,170);
+			cout << " between crabs " ;
+			setcolor(110, 215, 225);
+			cout <<  sizeSimilarityResults.at(resultIndex).maxSizeDiffID1;
+			setcolor(130,230,170);
+			cout << " and ";
+			setcolor(110, 215, 225);
+			cout << sizeSimilarityResults.at(resultIndex).maxSizeDiffID2 << endl;
+
+			//Min Difference For Weight
+			setcolor(130,230,170);
+			cout << "The minimum difference";
+			setcolor(110, 215, 225);
+			cout << " (in weight) " ;
+			setcolor(130,230,170);
+			cout << " between crabs is ";
+			setcolor(110, 215, 225);
+			cout << weightSimilarityResults.at(resultIndex).minWeightDiff;
+			setcolor(130,230,170);
+			cout << " between crabs " ;
+			setcolor(110, 215, 225);
+			cout <<  weightSimilarityResults.at(resultIndex).minWeightDiffID1;
+			setcolor(130,230,170);
+			cout << " and ";
+			setcolor(110, 215, 225);
+			cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
+
+
+			//Max Difference For Weight
+			setcolor(130,230,170);
+			cout << "The maximum difference";
+			setcolor(110, 215, 225);
+			cout << " (in weight) " ;
+			setcolor(130,230,170);
+			cout << " between crabs is ";
+			setcolor(110, 215, 225);
+			cout << weightSimilarityResults.at(resultIndex).maxWeightDiff;
+			setcolor(130,230,170);
+			cout << " between crabs " ;
+			setcolor(110, 215, 225);
+			cout <<  weightSimilarityResults.at(resultIndex).maxWeightDiffID1;
+			setcolor(130,230,170);
+			cout << " and ";
+			setcolor(110, 215, 225);
+			cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
+			resultIndex++;
+		}
+	}
 }
