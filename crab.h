@@ -16,7 +16,7 @@ private:
 	int age = 0;
 
 public:
-	Crab(std::vector<std::string> params, int ID);
+	Crab(std::vector<std::string> params/*, int ID*/);
 	void printCrab() const;
 	char getSex() const;
 	double getLength() const;

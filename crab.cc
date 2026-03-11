@@ -2,18 +2,17 @@
 
 using namespace std;
 
-Crab::Crab(vector<string> params, int ID) {
-	//TODO
-	sex = params.at(0)[0];
-	length = stod(params.at(1));
-	diameter = stod(params.at(2));
-	height = stod(params.at(3));
-	weight = stod(params.at(4)); //Total
-	shuckedWeight = stod(params.at(5)); //Edible Meat
-	visceraWeight = stod(params.at(6)); //Organs
-	shellWeight = stod(params.at(7)); //Shell
-	age = stoi(params.at(8));
-	crabID = ID;	
+Crab::Crab(vector<string> params/*, int ID*/) {
+	crabID = /*ID;*/stoi(params.at(0));	
+	sex = params.at(1)[0];
+	length = stod(params.at(2));
+	diameter = stod(params.at(3));
+	height = stod(params.at(4));
+	weight = stod(params.at(5)); //Total
+	shuckedWeight = stod(params.at(6)); //Edible Meat
+	visceraWeight = stod(params.at(7)); //Organs
+	shellWeight = stod(params.at(8)); //Shell
+	age = stoi(params.at(9));
 
 }
 
