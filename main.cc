@@ -1,5 +1,6 @@
 #include "crab.h"
 #include "dataset.h"
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -12,20 +13,34 @@ using namespace std;
 int main() {
 	vector<Crab> allCrabs;
 
-	ifstream file("CrabAgePrediction.csv");
+	//ifstream file("CrabAgePrediction.csv");
+	ifstream file("train_extended.csv");
 	string currLine;
+
+	/*if(file) {
+		cout << "IT OPENED GOOOD CHAT" << endl;
+	} else {
+		exit(EXIT_FAILURE);
+	}*/
 
 	getline(file, currLine); //Skip 1st line, just labels the values
 	int currID = 0;
 	while(getline(file, currLine)) {
+	//	cout << "this line reached" << endl;
 		vector<string> params;
 		stringstream workingLine(currLine);
 		string currParam;
 		while (getline(workingLine, currParam, ',')) { //Read 1 parameter from the line
 			params.push_back(currParam); //Add parameter to vector
+	//	cout << "this line reached" << endl;
 		}
-		if (params.size() == 9) { //Safety check in case broken row
-			allCrabs.push_back(Crab(params, currID)); //push a new crab into the crabb vector
+//		if (currID == 0) {
+//			for (string p : params) {
+//				cout << p << endl;
+//			}
+//		}
+		if (params.size() == 10) { //Safety check in case broken row
+			allCrabs.push_back(Crab(params/*, currID*/)); //push a new crab into the crabb vector
 			//allCrabs.at(allCrabs.size() - 1).printCrab();
 			currID++;
 		}
@@ -44,11 +59,11 @@ int main() {
 	//Run The Data Analysis Functions
 	crabSet.sexStats();
 	crabSet.ageStats();
-	for (int i = 0; i < 10; i++) {
+	//for (int i = 0; i < 10; i++) {
 		crabSet.sizeSimilarityCheck(allCrabs);
-		crabSet.weightSimilarityCheck(allCrabs);
+	//	crabSet.weightSimilarityCheck(allCrabs);
 	
-	}
+//	}
 
 
 	//Print The Data

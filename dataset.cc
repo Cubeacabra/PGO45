@@ -1,8 +1,10 @@
 #include "dataset.h"
+#include <cstddef>
 #include <unordered_map>
 #include "/public/colors.h"
 #include <cmath>
 #include "node.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -13,6 +15,7 @@ Dataset::Dataset(vector<Crab> vec) {
 //Find How Many Crabs There Are Of Each Sex
 void Dataset::sexStats() {
 	for (const Crab& c : crabs) {
+		//cout << c.getSex() << endl;
 		if (c.getSex() == 'M') {
 			males++;
 		} else if (c.getSex() == 'F') {
@@ -20,7 +23,8 @@ void Dataset::sexStats() {
 		} else if (c.getSex() == 'I') {
 			intersex++;
 		} else {
-			cout << "This was bad input we weren't supposed to get here" << endl;
+	//		cout << "This was bad input we weren't supposed to get here" << endl;
+	//		cout << "input was " << c.getSex() << " on crab number " << c.getCrabID() << endl;
 		}
 	}
 }
@@ -38,7 +42,7 @@ void Dataset::ageStats() {
 		}	
 		ages[currAge].push_back(c);
 	}
-	checkSimilaritiesByAge();
+	//checkSimilaritiesByAge();
 }
 
 void Dataset::checkSimilaritiesByAge() {
@@ -53,14 +57,18 @@ void Dataset::checkSimilaritiesByAge() {
 
 //Find What Crabs Are Closest In Size (Least Difference Between Their Heights, Diameters, And Lengths)
 void Dataset::sizeSimilarityCheck(vector<Crab>& crabsOneAge) {
-	size_t crabCount = crabsOneAge.size();
+	size_t crabCount = min(crabsOneAge.size(),static_cast<size_t>(20000));
+	
+
 	if (crabCount < 2) return;
 	SizeNode result;
 	
-	if (crabCount < 3000) {
+	if (crabCount < 15000) {
 		result.minAge = crabsOneAge.at(0).getAge();
 		result.maxAge = crabsOneAge.at(0).getAge();
 	}
+
+	
 
 	//DEBUG: For the for loop at the bottom
 	//int currRun = 0;
@@ -95,11 +103,11 @@ void Dataset::sizeSimilarityCheck(vector<Crab>& crabsOneAge) {
 
 //Find What Crabs Are Closest In Weight (Their Total Weight, Not Shucked Weight/Viscera Weight/Shell Weight)
 void Dataset::weightSimilarityCheck(vector<Crab>& crabsOneAge) {
-	size_t crabCount = crabsOneAge.size();
+	size_t crabCount = min(crabsOneAge.size(),static_cast<size_t>(20000));
 
 	if (crabCount < 2) return;
 	WeightNode result;
-	if (crabCount < 3000) {
+	if (crabCount < 15000) {
 		result.minAge = crabsOneAge.at(0).getAge();
 		result.maxAge = crabsOneAge.at(0).getAge();
 	}
@@ -215,7 +223,7 @@ void Dataset::printSimilarity() {
 			setcolor(255,215,0);
 			if (sizeSimilarityResults.at(resultIndex).maxAge == -1) {
 				if (!seenAllCrabs) {
-					cout << "Similarity Between All Crabs" << endl;
+					cout << "Similarity Between First 20k Crabs" << endl;
 					seenAllCrabs = true;
 				} else {
 					continue;
@@ -261,7 +269,7 @@ void Dataset::printSimilarity() {
 			setcolor(110, 215, 225);
 			cout << sizeSimilarityResults.at(resultIndex).maxSizeDiffID2 << endl;
 
-			//Min Difference For Weight
+	/*		//Min Difference For Weight
 			setcolor(130,230,170);
 			cout << "The minimum difference";
 			setcolor(110, 215, 225);
@@ -297,7 +305,7 @@ void Dataset::printSimilarity() {
 			cout << " and ";
 			setcolor(110, 215, 225);
 			cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
-			resultIndex++;
+	*/		resultIndex++;
 		}
 	}
 }
