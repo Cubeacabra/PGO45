@@ -45,8 +45,9 @@ int main() {
 	crabSet.sexStats();
 	crabSet.ageStats();
 	for (int i = 0; i < 10; i++) {
-		crabSet.sizeSimilarityCheck();
-		crabSet.weightSimilarityCheck();
+		crabSet.sizeSimilarityCheck(allCrabs);
+		crabSet.weightSimilarityCheck(allCrabs);
+	
 	}
 
 

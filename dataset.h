@@ -7,6 +7,7 @@
 #include <climits>
 #include <cfloat>
 #include <unordered_map>
+#include "node.h"
 
 class Dataset {
 private:
@@ -20,8 +21,11 @@ private:
 	int minAge = INT_MAX;
 	int maxAge = 0;
 	//Key is age, valye is how many crabs at that age 
-	std::unordered_map<int, int> ages;
-	//Size Diffs For The Extremes
+	std::unordered_map<int, std::vector<Crab>> ages;
+	//Stores All Needed Results From Sililarity Functions
+	std::vector<SizeNode> sizeSimilarityResults;
+	std::vector<WeightNode> weightSimilarityResults;
+	/*//Size Diffs For The Extremes
 	double minSizeDiff = DBL_MAX;
 	double maxSizeDiff = -DBL_MIN;
 	//Weight Diffs For The Extremes
@@ -37,15 +41,16 @@ private:
 	int minWeightDiffID2 = -1;
 	int maxWeightDiffID1 = -1;
 	int maxWeightDiffID2 = -1;
-	
+	*/
 
 public:
 	Dataset(std::vector<Crab> vec);
 	//Data Analysis
 	void sexStats();
 	void ageStats();
-	void sizeSimilarityCheck();
-	void weightSimilarityCheck();
+	void checkSimilaritiesByAge();
+	void sizeSimilarityCheck(std::vector<Crab>& crabsOneAge);
+	void weightSimilarityCheck(std::vector<Crab>& crabsOneAge);
 	
 	//Print Functions
 	void printSexStats();
