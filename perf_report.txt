@@ -1,0 +1,1084 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 70K of event 'cycles:Pu'
+# Event count (approx.): 42177300496
+#
+# Children      Self  Command  Shared Object          Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+# ........  ........  .......  .....................  .................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+   100.00%     0.00%  usePerf  usePerf                [.] _start
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               |          
+               |--94.43%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               |          |          
+               |          |--22.53%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+               |          |          |          
+               |          |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          |          |          |          
+               |          |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+               |          |          |          
+               |          |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+               |          |          
+               |          |--19.97%--std::abs(double)
+               |          |          
+               |          |--14.31%--Crab::operator!=(Crab const&) const
+               |          |          |          
+               |          |           --7.95%--Crab::getCrabID() const
+               |          |          
+               |          |--1.98%--Crab::getLength() const
+               |          |          
+               |          |--1.85%--Crab::getDiameter() const
+               |          |          
+               |          |--1.04%--Crab::getHeight() const
+               |          |          
+               |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          
+               |--1.63%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |          |          
+               |           --1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |                     |          
+               |                      --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                |          
+               |                                 --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                           |          
+               |                                            --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |          
+               |--1.53%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+               |          |          
+               |           --1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+               |                     |          
+               |                      --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+               |          
+                --0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+   100.00%     0.00%  usePerf  libc.so.6              [.] __libc_start_main
+            |
+            ---__libc_start_main
+               0x7ffef7ce221c
+               main
+               |          
+               |--94.43%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               |          |          
+               |          |--22.53%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+               |          |          |          
+               |          |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          |          |          |          
+               |          |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+               |          |          |          
+               |          |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+               |          |          
+               |          |--19.97%--std::abs(double)
+               |          |          
+               |          |--14.31%--Crab::operator!=(Crab const&) const
+               |          |          |          
+               |          |           --7.95%--Crab::getCrabID() const
+               |          |          
+               |          |--1.98%--Crab::getLength() const
+               |          |          
+               |          |--1.85%--Crab::getDiameter() const
+               |          |          
+               |          |--1.04%--Crab::getHeight() const
+               |          |          
+               |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          
+               |--1.63%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |          |          
+               |           --1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |                     |          
+               |                      --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                |          
+               |                                 --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                           |          
+               |                                            --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |          
+               |--1.53%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+               |          |          
+               |           --1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+               |                     |          
+               |                      --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+               |          
+                --0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+   100.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7ce221c
+            |
+            ---0x7ffef7ce221c
+               main
+               |          
+               |--94.43%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               |          |          
+               |          |--22.53%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+               |          |          |          
+               |          |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          |          |          |          
+               |          |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+               |          |          |          
+               |          |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+               |          |          
+               |          |--19.97%--std::abs(double)
+               |          |          
+               |          |--14.31%--Crab::operator!=(Crab const&) const
+               |          |          |          
+               |          |           --7.95%--Crab::getCrabID() const
+               |          |          
+               |          |--1.98%--Crab::getLength() const
+               |          |          
+               |          |--1.85%--Crab::getDiameter() const
+               |          |          
+               |          |--1.04%--Crab::getHeight() const
+               |          |          
+               |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               |          
+               |--1.63%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |          |          
+               |           --1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               |                     |          
+               |                      --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                |          
+               |                                 --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |                                           |          
+               |                                            --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               |          
+               |--1.53%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+               |          |          
+               |           --1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+               |                     |          
+               |                      --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+               |          
+                --0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+   100.00%     0.08%  usePerf  usePerf                [.] main
+            |          
+             --99.92%--main
+                       |          
+                       |--94.43%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+                       |          |          
+                       |          |--22.53%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+                       |          |          |          
+                       |          |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+                       |          |          |          |          
+                       |          |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+                       |          |          |          
+                       |          |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+                       |          |          
+                       |          |--19.97%--std::abs(double)
+                       |          |          
+                       |          |--14.31%--Crab::operator!=(Crab const&) const
+                       |          |          |          
+                       |          |           --7.95%--Crab::getCrabID() const
+                       |          |          
+                       |          |--1.98%--Crab::getLength() const
+                       |          |          
+                       |          |--1.85%--Crab::getDiameter() const
+                       |          |          
+                       |          |--1.04%--Crab::getHeight() const
+                       |          |          
+                       |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+                       |          
+                       |--1.63%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+                       |          |          
+                       |           --1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+                       |                     |          
+                       |                      --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                       |                                |          
+                       |                                 --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                       |                                           |          
+                       |                                            --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                       |          
+                       |--1.53%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+                       |          |          
+                       |           --1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+                       |                     |          
+                       |                      --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+                       |          
+                        --0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+    94.43%    32.23%  usePerf  usePerf                [.] Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+            |          
+            |--62.21%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+            |          |          
+            |          |--22.53%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+            |          |          |          
+            |          |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          |          |          |          
+            |          |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+            |          |          |          
+            |          |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+            |          |          
+            |          |--19.97%--std::abs(double)
+            |          |          
+            |          |--14.31%--Crab::operator!=(Crab const&) const
+            |          |          |          
+            |          |           --7.95%--Crab::getCrabID() const
+            |          |          
+            |          |--1.98%--Crab::getLength() const
+            |          |          
+            |          |--1.85%--Crab::getDiameter() const
+            |          |          
+            |          |--1.04%--Crab::getHeight() const
+            |          |          
+            |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          
+             --32.23%--_start
+                       __libc_start_main
+                       0x7ffef7ce221c
+                       main
+                       Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+
+    23.07%     3.17%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+            |          
+            |--19.90%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+            |          |          
+            |          |--16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          |          |          
+            |          |           --4.88%--std::vector<Crab, std::allocator<Crab> >::size() const
+            |          |          
+            |           --3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+            |          
+             --3.17%--_start
+                       __libc_start_main
+                       0x7ffef7ce221c
+                       main
+                       |          
+                       |--2.63%--Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+                       |          std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+                       |          
+                        --0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+    19.97%    19.97%  usePerf  usePerf                [.] std::abs(double)
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               std::abs(double)
+
+    17.00%    12.12%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          
+            |--12.12%--_start
+            |          __libc_start_main
+            |          0x7ffef7ce221c
+            |          main
+            |          Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+            |          |          
+            |          |--11.58%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+            |          |          std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          |          
+            |           --0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+            |          
+             --4.88%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+                       std::vector<Crab, std::allocator<Crab> >::size() const
+
+    14.31%     6.36%  usePerf  usePerf                [.] Crab::operator!=(Crab const&) const
+            |          
+            |--7.95%--Crab::operator!=(Crab const&) const
+            |          Crab::getCrabID() const
+            |          
+             --6.36%--_start
+                       __libc_start_main
+                       0x7ffef7ce221c
+                       main
+                       Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+                       Crab::operator!=(Crab const&) const
+
+     7.95%     7.95%  usePerf  usePerf                [.] Crab::getCrabID() const
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               Crab::operator!=(Crab const&) const
+               Crab::getCrabID() const
+
+     4.88%     4.88%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::size() const
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+               std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+               std::vector<Crab, std::allocator<Crab> >::size() const
+
+     3.43%     3.43%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+               std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)
+
+     1.98%     1.98%  usePerf  usePerf                [.] Crab::getLength() const
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               Crab::getLength() const
+
+     1.85%     1.85%  usePerf  usePerf                [.] Crab::getDiameter() const
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               Crab::getDiameter() const
+
+     1.63%     0.07%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+            |          
+             --1.56%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+                       |          
+                        --1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+                                  |          
+                                   --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                             |          
+                                              --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                                        |          
+                                                         --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+
+     1.53%     0.03%  usePerf  usePerf                [.] Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+            |          
+             --1.50%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+                       |          
+                        --1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+                                  |          
+                                   --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+
+     1.45%     0.07%  usePerf  usePerf                [.] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+            |          
+             --1.38%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+                       |          
+                        --0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                  |          
+                                   --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                             |          
+                                              --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+
+     1.23%     0.03%  usePerf  usePerf                [.] std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+            |          
+             --1.21%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+                       |          
+                        --1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+
+     1.19%     0.09%  usePerf  usePerf                [.] double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+            |          
+             --1.10%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+
+     1.04%     1.04%  usePerf  usePerf                [.] Crab::getHeight() const
+            |
+            ---_start
+               __libc_start_main
+               0x7ffef7ce221c
+               main
+               Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+               Crab::getHeight() const
+
+     0.69%     0.02%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+            |          
+             --0.67%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                       |          
+                        --0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                  |          
+                                   --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+
+     0.66%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+            |          
+             --0.65%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                       |          
+                        --0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+
+     0.61%     0.10%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+            |          
+             --0.51%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+
+     0.48%     0.22%  usePerf  libstdc++.so.6.0.33    [.] std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+     0.47%     0.12%  usePerf  usePerf                [.] void std::__relocate_object_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+     0.44%     0.01%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+     0.36%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+     0.36%     0.00%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::uninitialized_copy<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.35%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.35%     0.06%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__do_uninit_copy<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.24%     0.05%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_check_len(unsigned long, char const*) const
+     0.23%     0.13%  usePerf  libstdc++.so.6.0.33    [.] void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+     0.22%     0.00%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~vector()
+     0.19%     0.01%  usePerf  usePerf                [.] Dataset::ageStats()
+     0.18%     0.03%  usePerf  usePerf                [.] void std::_Construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+     0.17%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::basic_stringstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode)
+     0.17%     0.09%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+     0.16%     0.00%  usePerf  usePerf                [.] void std::_Destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.15%     0.04%  usePerf  usePerf                [.] void std::_Destroy_aux<false>::__destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.14%     0.02%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long)
+     0.14%     0.01%  usePerf  usePerf                [.] std::__cxx11::stoi(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*, int)
+     0.13%     0.02%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::at(unsigned long)
+     0.13%     0.03%  usePerf  usePerf                [.] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+     0.12%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0186c
+     0.12%     0.02%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::max_size() const
+     0.12%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+     0.12%     0.05%  usePerf  usePerf                [.] std::__new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*)
+     0.12%     0.05%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)::_Guard::~_Guard()
+     0.12%     0.12%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()
+     0.10%     0.00%  usePerf  usePerf                [.] std::unordered_map<int, std::vector<Crab, std::allocator<Crab> >, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > > >::operator[](int const&)
+     0.10%     0.02%  usePerf  usePerf                [.] std::__detail::_Map_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::allocator<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](int const&)
+     0.10%     0.06%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_range_check(unsigned long) const
+     0.10%     0.00%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::push_back(Crab&&)
+     0.10%     0.02%  usePerf  usePerf                [.] std::__new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::deallocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, unsigned long)
+     0.09%     0.01%  usePerf  usePerf                [.] Crab& std::vector<Crab, std::allocator<Crab> >::emplace_back<Crab>(Crab&&)
+     0.09%     0.03%  usePerf  usePerf                [.] void std::_Destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.09%     0.09%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+     0.08%     0.07%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_max_size(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&)
+     0.08%     0.08%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::size() const
+     0.08%     0.08%  usePerf  libc.so.6              [.] cfree
+     0.08%     0.04%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)
+     0.08%     0.00%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::_S_relocate(Crab*, Crab*, Crab*, std::allocator<Crab>&)
+     0.08%     0.00%  usePerf  usePerf                [.] Crab* std::__relocate_a<Crab*, Crab*, std::allocator<Crab> >(Crab*, Crab*, Crab*, std::allocator<Crab>&)
+     0.08%     0.08%  usePerf  libstdc++.so.6.0.33    [.] std::istream::sentry::sentry(std::istream&, bool)
+     0.08%     0.00%  usePerf  usePerf                [.] Crab* std::__relocate_a_1<Crab*, Crab*, std::allocator<Crab> >(Crab*, Crab*, Crab*, std::allocator<Crab>&)
+     0.08%     0.01%  usePerf  libstdc++.so.6.0.33    [.] operator new(unsigned long)
+     0.07%     0.07%  usePerf  libc.so.6              [.] 0x0000000000042640
+     0.07%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02640
+     0.07%     0.05%  usePerf  usePerf                [.] void std::__relocate_object_a<Crab, Crab, std::allocator<Crab> >(Crab*, Crab*, std::allocator<Crab>&)
+     0.07%     0.06%  usePerf  usePerf                [.] __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)::_Save_errno::~_Save_errno()
+     0.07%     0.07%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&& std::forward<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::remove_reference<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::type&)
+     0.07%     0.02%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::push_back(Crab const&)
+     0.07%     0.03%  usePerf  usePerf                [.] __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)::_Save_errno::_Save_errno()
+     0.07%     0.07%  usePerf  libc.so.6              [.] 0x0000000000042610
+     0.07%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02610
+     0.06%     0.06%  usePerf  libc.so.6              [.] 0x0000000000040c50
+     0.06%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c50
+     0.06%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00edf
+     0.06%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01804
+     0.06%     0.06%  usePerf  libc.so.6              [.] malloc
+     0.06%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02104
+     0.06%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::_M_init()
+     0.05%     0.01%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~_Vector_base()
+     0.05%     0.05%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const& std::forward<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::remove_reference<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>::type&)
+     0.05%     0.03%  usePerf  usePerf                [.] bool __gnu_cxx::operator!=<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&)
+     0.05%     0.00%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_base(unsigned long, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&)
+     0.05%     0.00%  usePerf  usePerf                [.] std::_Hashtable<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::allocator<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_find_node(unsigned long, int const&, unsigned long) const
+     0.05%     0.04%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+     0.05%     0.01%  usePerf  usePerf                [.] std::_Hashtable<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::allocator<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_find_before_node(unsigned long, int const&, unsigned long) const
+     0.05%     0.05%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::operator++()
+     0.05%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a56f
+     0.05%     0.01%  usePerf  usePerf                [.] Crab* std::__do_uninit_copy<__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*>(__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*)
+     0.05%     0.00%  usePerf  usePerf                [.] Crab* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*, Crab>(__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*, std::allocator<Crab>&)
+     0.05%     0.00%  usePerf  usePerf                [.] Crab* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*>(__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*)
+     0.05%     0.00%  usePerf  usePerf                [.] Crab* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*>(__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, Crab*)
+     0.05%     0.00%  usePerf  usePerf                [.] void std::vector<Crab, std::allocator<Crab> >::_M_realloc_append<Crab const&>(Crab const&)
+     0.04%     0.02%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::end()
+     0.04%     0.04%  usePerf  usePerf                [.] __errno_location@plt
+     0.04%     0.01%  usePerf  usePerf                [.] std::__detail::_Hashtable_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits<false, false, true> >::_M_equals(int const&, unsigned long, std::__detail::_Hash_node_value<std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, false> const&) const
+     0.04%     0.04%  usePerf  libstdc++.so.6.0.33    [.] memcpy@plt
+     0.04%     0.04%  usePerf  usePerf                [.] operator new(unsigned long, void*)
+     0.04%     0.04%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__niter_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.04%     0.00%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_create_storage(unsigned long)
+     0.04%     0.04%  usePerf  libc.so.6              [.] 0x0000000000041298
+     0.04%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01298
+     0.04%     0.04%  usePerf  libc.so.6              [.] 0x00000000000a4224
+     0.04%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d64224
+     0.04%     0.00%  usePerf  usePerf                [.] void std::vector<Crab, std::allocator<Crab> >::_M_realloc_append<Crab>(Crab&&)
+     0.04%     0.04%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::__normal_iterator(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* const&)
+     0.03%     0.03%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+     0.03%     0.01%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::back()
+     0.03%     0.01%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_deallocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, unsigned long)
+     0.03%     0.03%  usePerf  libc.so.6              [.] __errno_location
+     0.03%     0.01%  usePerf  usePerf                [.] std::__detail::_Hashtable_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits<false, false, true> >::_M_key_equals(int const&, std::__detail::_Hash_node_value<std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, false> const&) const
+     0.03%     0.03%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_get_Tp_allocator()
+     0.03%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d026c8
+     0.03%     0.03%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::operator bool() const
+     0.03%     0.01%  usePerf  usePerf                [.] Dataset::sexStats()
+     0.03%     0.03%  usePerf  usePerf                [.] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+     0.03%     0.01%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::begin()
+     0.03%     0.03%  usePerf  libc.so.6              [.] 0x00000000000a420c
+     0.03%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d6420c
+     0.03%     0.03%  usePerf  usePerf                [.] std::remove_reference<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>::type&& std::move<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+     0.02%     0.02%  usePerf  libc.so.6              [.] strtod
+     0.02%     0.00%  usePerf  usePerf                [.] Dataset::Dataset(std::vector<Crab, std::allocator<Crab> >)
+     0.02%     0.00%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::operator=(std::vector<Crab, std::allocator<Crab> > const&)
+     0.02%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::locale::locale()
+     0.02%     0.00%  usePerf  usePerf                [.] Crab* std::vector<Crab, std::allocator<Crab> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > > >(unsigned long, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >)
+     0.02%     0.02%  usePerf  libstdc++.so.6.0.33    [.] std::locale::~locale()
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a3094
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63094
+     0.02%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)::_Save_errno::~_Save_errno()
+     0.02%     0.00%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::vector(std::vector<Crab, std::allocator<Crab> > const&)
+     0.02%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::~basic_stringstream()
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x0000000000040c28
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c28
+     0.02%     0.02%  usePerf  usePerf                [.] Crab&& std::forward<Crab>(std::remove_reference<Crab>::type&)
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a30ac
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630ac
+     0.02%     0.02%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::base() const
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a3080
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63080
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a3040
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63040
+     0.02%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)::_Save_errno::_Save_errno()
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x0000000000040d6c
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00d6c
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a2b08
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b08
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x0000000000041140
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01140
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017af
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x0000000000040c38
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c38
+     0.02%     0.02%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_get_Tp_allocator() const
+     0.02%     0.01%  usePerf  usePerf                [.] void std::_Construct<Crab, Crab const&>(Crab*, Crab const&)
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a3054
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63054
+     0.02%     0.00%  usePerf  usePerf                [.] std::_Hashtable<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::allocator<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_bucket_index(unsigned long) const
+     0.02%     0.02%  usePerf  usePerf                [.] unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+     0.02%     0.02%  usePerf  libc.so.6              [.] __memcpy_chk
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01803
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x000000000004a42c
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a42c
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x00000000000a3060
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63060
+     0.02%     0.02%  usePerf  libc.so.6              [.] 0x0000000000040d68
+     0.02%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00d68
+     0.02%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::difference_type __gnu_cxx::operator-<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040ee8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ee8
+     0.01%     0.01%  usePerf  usePerf                [.] std::__detail::_Hash_code_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, false>::_M_bucket_index(unsigned long, unsigned long) const
+     0.01%     0.01%  usePerf  usePerf                [.] bool __gnu_cxx::operator!=<Crab const*, std::vector<Crab, std::allocator<Crab> > >(__gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > > const&, __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > > const&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000420a4
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d020a4
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::locale::operator=(std::locale const&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040ab8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ab8
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a305c
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d6305c
+     0.01%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@plt
+     0.01%     0.01%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_impl::_Vector_impl(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&)
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > >::__normal_iterator(Crab* const&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000412b8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012b8
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000416b0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d016b0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000042260
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02260
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000041790
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01790
+     0.01%     0.01%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::end()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000413c0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d013c0
+     0.01%     0.01%  usePerf  usePerf                [.] std::__detail::_Select1st::__1st_type<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const&>::type&& std::__detail::_Select1st::operator()<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const&>(std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const&) const
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::__normal_iterator(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const* const&)
+     0.01%     0.00%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::begin() const
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000411b8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d011b8
+     0.01%     0.01%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::end() const
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::c_str() const
+     0.01%     0.01%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_impl::~_Vector_impl()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040ed8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ed8
+     0.01%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::~basic_stringstream()@plt
+     0.01%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > >::operator-(long) const
+     0.01%     0.01%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)::_Guard::_Guard(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, unsigned long, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a3078
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63078
+     0.01%     0.01%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator[](unsigned long)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004a424
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a424
+     0.01%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__to_address<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a3084
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63084
+     0.01%     0.01%  usePerf  usePerf                [.] Crab* std::__addressof<Crab>(Crab&)
+     0.01%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::~ios_base()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000412e8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012e8
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2b38
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b38
+     0.01%     0.01%  usePerf  usePerf                [.] Crab::getSex() const
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::clear(std::_Ios_Iostate)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000458f4
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d058f4
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004a404
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a404
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000041760
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01760
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02a33
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d026c7
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000412c0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012c0
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::ios_base()
+     0.01%     0.01%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)@plt
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000041f60
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01f60
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a3098
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63098
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::istream::sentry::sentry(std::istream&, bool)@plt
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a3050
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63050
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000427d4
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d027d4
+     0.01%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__aligned_buffer<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >::_M_ptr()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000042244
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02244
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] 0x00000000000d83f0
+     0.01%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00007ffef7fa83f0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000425bc
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d025bc
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a3090
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d63090
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2ac0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62ac0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2ae0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62ae0
+     0.01%     0.00%  usePerf  usePerf                [.] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040c14
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c14
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::locale::locale()@plt
+     0.01%     0.00%  usePerf  usePerf                [.] std::__detail::_Hashtable_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits<false, false, true> >::_M_eq() const
+     0.01%     0.00%  usePerf  usePerf                [.] std::__detail::_Hash_code_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, false>::_M_hash_code(int const&) const
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__aligned_buffer<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >::_M_addr()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004a3d0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a3d0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040d8c
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00d8c
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a30b4
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630b4
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::locale::id::_M_id() const
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::operator*() const
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] malloc@plt
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > >::operator++()
+     0.01%     0.00%  usePerf  usePerf                [.] bool __gnu_cxx::operator!=<Crab*, std::vector<Crab, std::allocator<Crab> > >(__gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > > const&, __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > > const&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000425d0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d025d0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01f87
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2b50
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b50
+     0.01%     0.01%  usePerf  libc.so.6              [.] __isoc23_strtol
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000042268
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02268
+     0.01%     0.00%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_impl::_Vector_impl()
+     0.01%     0.00%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_base()
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040bdc
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bdc
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040c1c
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c1c
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2aec
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62aec
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x0000000000040ed0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ed0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004a1d0
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01f73
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a1d0
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000416b8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d016b8
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000412c8
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012c8
+     0.01%     0.01%  usePerf  usePerf                [.] std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)@plt
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004114c
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0114c
+     0.01%     0.01%  usePerf  usePerf                [.] std::equal_to<int>::operator()(int const&, int const&) const
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__aligned_buffer<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >::_M_addr() const
+     0.01%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__aligned_buffer<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > >::_M_ptr() const
+     0.01%     0.01%  usePerf  usePerf                [.] std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const& std::forward<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const&>(std::remove_reference<std::pair<int const, std::vector<Crab, std::allocator<Crab> > > const&>::type&)
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x000000000004590c
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0590c
+     0.01%     0.01%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > >::operator*() const
+     0.01%     0.01%  usePerf  usePerf                [.] std::__detail::_Mod_range_hashing::operator()(unsigned long, unsigned long) const
+     0.01%     0.01%  usePerf  libc.so.6              [.] 0x00000000000a2b54
+     0.01%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b54
+     0.01%     0.01%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::underflow()
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)::_Range_chk::_S_chk(double, std::integral_constant<bool, false>)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a1cc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a1cc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a438
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a438
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040868
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00868
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00000000000d83ec
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00007ffef7fa83ec
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040e98
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00e98
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d028ab
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000417a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f28
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f28
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a30a8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630a8
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045864
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05864
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000412b0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012b0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a448
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a448
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040ab4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ab4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a56c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a56c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000417d4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017d4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041828
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01828
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >::operator++()
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045938
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05938
+     0.00%     0.00%  usePerf  usePerf                [.] std::__detail::_Hashtable_ebo_helper<0, std::equal_to<int>, true>::_M_cget() const
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab const*, std::vector<Crab, std::allocator<Crab> > >::base() const
+     0.00%     0.00%  usePerf  [unknown]              [.] 0xffffd06fce411550
+     0.00%     0.00%  usePerf  usePerf                [.] Crab::getAge() const
+     0.00%     0.00%  usePerf  usePerf                [.] std::remove_reference<Crab&>::type&& std::move<Crab&>(Crab&)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000425c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d025c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a30d8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630d8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040fb4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00fb4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041880
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01880
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::locale::id::_M_id() const@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b18
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b18
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f74
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f74
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b0c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b0c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000425b8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d025b8
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::_M_init()@plt
+     0.00%     0.00%  usePerf  usePerf                [.] setcolor(unsigned char, unsigned char, unsigned char)
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] operator delete(void*, unsigned long)
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000412bc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012bc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041780
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01780
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000420dc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d020dc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000412a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f54
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f54
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041220
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01220
+     0.00%     0.00%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000042250
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02250
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040eb8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00eb8
+     0.00%     0.00%  usePerf  usePerf                [.] std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_impl_data::_Vector_impl_data()
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000042760
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02760
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041268
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01268
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040be4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00be4
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] operator delete(void*)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b34
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b34
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041138
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01138
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f08
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f08
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a464
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a464
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b70
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b70
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::base() const
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040924
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00924
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::_M_dispose_callbacks()
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045858
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05858
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045918
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05918
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)::_Range_chk::_S_chk(long, std::integral_constant<bool, true>)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000417bc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017bc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a770
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a770
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041420
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01420
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00000000000d8404
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00007ffef7fa8404
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000417b4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017b4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004b528
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0b528
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] free@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040ad0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ad0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f94
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f94
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a307c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d6307c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000042a50
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02a50
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b24
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b24
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2af0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62af0
+     0.00%     0.00%  usePerf  usePerf                [.] std::__detail::_Hashtable_ebo_helper<1, std::hash<int>, true>::_M_cget() const
+     0.00%     0.00%  usePerf  usePerf                [.] std::__detail::_Hash_code_base<int, std::pair<int const, std::vector<Crab, std::allocator<Crab> > >, std::__detail::_Select1st, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, false>::_M_hash() const
+     0.00%     0.00%  usePerf  [unknown]              [k] 0xffffd06fcf1df58c
+     0.00%     0.00%  usePerf  [unknown]              [.] 0xffffd06fcf1e01c4
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_pbump(char*, char*, long)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000458ec
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d058ec
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040960
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00960
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a1a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0274f
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a1a0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000426b0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d026b0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000416a8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d016a8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c64
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c64
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_sync(char*, unsigned long, unsigned long)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040d5c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00d5c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040fac
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00fac
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8173194
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816f248
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000420fc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d020fc
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816de68
+     0.00%     0.00%  usePerf  usePerf                [.] __gnu_cxx::__normal_iterator<Crab*, std::vector<Crab, std::allocator<Crab> > >::base() const
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8170bc4
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8166268
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041734
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01734
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8164f80
+     0.00%     0.00%  usePerf  [unknown]              [k] 0xffffd06fcf1dfd78
+     0.00%     0.00%  usePerf  usePerf                [.] Dataset::printSimilarity()
+     0.00%     0.00%  usePerf  libc.so.6              [.] _IO_fwrite
+     0.00%     0.00%  usePerf  libc.so.6              [.] _IO_file_xsputn
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d3c380
+     0.00%     0.00%  usePerf  libc.so.6              [.] _IO_file_write
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d4261c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d425fc
+     0.00%     0.00%  usePerf  [unknown]              [.] 0xffffd06fcf1e0230
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ostream::flush()
+     0.00%     0.00%  usePerf  usePerf                [.] Dataset::printAgeStats()
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ostream::sentry::sentry(std::ostream&)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000458fc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d058fc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041728
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01728
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004183c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0183c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000412c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045974
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05974
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041830
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01830
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000412d0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d012d0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040980
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00980
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041808
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01808
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000458d8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d058d8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a71c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041730
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01730
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a71c
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040bec
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bec
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000042108
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02108
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040bd0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bd0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040b90
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000042684
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00b90
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d02684
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c0c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c0c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004b524
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0b524
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045980
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05980
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a198
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a198
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045878
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05878
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a30f4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630f4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004b538
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0b538
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040884
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00884
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] operator delete(void*)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a744
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a744
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b14
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b14
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041718
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01718
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a450
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a450
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004187c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0187c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004126c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0126c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040bd8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bd8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b6c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b6c
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_pbump(char*, char*, long)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041888
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01888
+     0.00%     0.00%  usePerf  usePerf                [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[](unsigned long)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004129c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0129c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045818
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05818
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000457f8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d057f8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000425f0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d025f0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040bf0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bf0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000458c8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d058c8
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::_M_call_callbacks(std::ios_base::event)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a764
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a764
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a724
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a724
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2ae4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62ae4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040fa0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00fa0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041870
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01870
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045994
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05994
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041168
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01168
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b28
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b28
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041748
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01748
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c34
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c34
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a41c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a41c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000426e4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d026e4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040fd4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00fd4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000426a4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d026a4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045898
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05898
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b20
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b20
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000417c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d017c4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c08
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c08
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041130
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01130
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041690
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01690
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040f98
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00f98
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004157c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0157c
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c18
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c18
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040acc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00acc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041688
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01688
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040ac0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00ac0
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a30bc
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d630bc
+     0.00%     0.00%  usePerf  usePerf                [.] std::basic_ios<char, std::char_traits<char> >::operator bool() const@plt
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00000000000d83f4
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] 0x00007ffef7fa83f4
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x000000000004a454
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d0a454
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040bf8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00bf8
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040990
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00990
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041874
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01874
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ios_base::_M_dispose_callbacks()@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000045940
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d05940
+     0.00%     0.00%  usePerf  usePerf                [.] std::vector<Crab, std::allocator<Crab> >::_M_realloc_append<Crab const&>(Crab const&)::_Guard::~_Guard()
+     0.00%     0.00%  usePerf  usePerf                [.] std::__new_allocator<Crab>::deallocate(Crab*, unsigned long)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000426c8
+     0.00%     0.00%  usePerf  usePerf                [.] std::__new_allocator<Crab>::allocate(unsigned long, void const*)
+     0.00%     0.00%  usePerf  usePerf                [.] std::_Vector_base<Crab, std::allocator<Crab> >::_M_allocate(unsigned long)
+     0.00%     0.00%  usePerf  usePerf                [.] std::hash<int>::operator()(int) const
+     0.00%     0.00%  usePerf  usePerf                [.] Crab const& std::forward<Crab const&>(std::remove_reference<Crab const&>::type&)
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00000000000a2b00
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d62b00
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_sync(char*, unsigned long, unsigned long)@plt
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040d44
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00d44
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041418
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01418
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000040c00
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d00c00
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x0000000000041150
+     0.00%     0.00%  usePerf  libc.so.6              [.] 0x00007ffef7d01150
+     0.00%     0.00%  usePerf  libstdc++.so.6.0.33    [.] std::ctype<char>::_M_widen_init() const
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00000000000090f4
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef81610f4
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x000000000000cedc
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8164f7f
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8164edc
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x0000000000009118
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8161118
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x0000000000009150
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8161150
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x000000000001ca60
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8170a70
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef815916c
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816e9b0
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8169a0c
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef81693cb
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8174a60
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x0000000000010bec
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816dcc4
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8168bec
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8173193
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x0000000000017144
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816f144
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef816ec90
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x0000000000016c90
+     0.00%     0.00%  usePerf  [unknown]              [k] 0xffffd06fcf1dfbb8
+     0.00%     0.00%  usePerf  [unknown]              [.] 0xffffd06fcf1e01dc
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x00007ffef8173180
+     0.00%     0.00%  usePerf  ld-linux-aarch64.so.1  [.] 0x000000000001b180
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

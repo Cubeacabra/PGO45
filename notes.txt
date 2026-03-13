@@ -1,0 +1,1 @@
+I found it odd that std::abs(double) was nearly 20% of our run time but I couldn't figure what that was in the code. I also found it intresting that the runtime for the get height and get length functions varied noticably (1.04% for height and 1.98% for length). I'll try and find more but I'll commit for now. 
