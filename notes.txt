@@ -6,7 +6,7 @@ I found it odd that std::abs(double) was nearly 20% of our run time but I couldn
 		3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)|          
     19.97%--std::abs(double)
     14.31%--Crab::operator!=(Crab const&) const
-        7.97.95%--Crab::getCrabID() const 
+        7.95%--Crab::getCrabID() const 
 	1.98%--Crab::getLength() const     
     1.85%--Crab::getDiameter() const
     1.04%--Crab::getHeight() const
@@ -22,6 +22,6 @@ I found it odd that std::abs(double) was nearly 20% of our run time but I couldn
                |          
 0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
 
-These percentages seem consistent in the report despite not adding up to 100%. My only question is what the heck is std::abs(double)!? Even when using CTRL+F I can’t seem to find it.
+These percentages seem consistent in the report despite not adding up to 100%. My only question is what the heck is std::abs(double)!? After much searching I realized that it was likely static_cast<size_t>(20000) because size_t is an unsigned int. Still no idea why it takes so long.
 
 
