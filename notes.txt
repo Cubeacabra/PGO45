@@ -22,6 +22,6 @@ I found it odd that std::abs(double) was nearly 20% of our run time but I couldn
                |          
 0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
 
-These percentages are consistent in the report despite not adding up to 100%. This is because at the end of the report there is an extensive list of parts are less than 0.5% of the run   time individually. These go from line 407 to line1079 in the report with the runtime of lines 698-1079 being listed as 0.00%. My only question was "what the heck is std::abs(double)!?"   After much searching I realized that it was likely static_cast<size_t>(20000) because size_t is an unsigned int so the conversion probably uses abs. It was also in the right spot from theorder of the report.
+These percentages are consistent in the report despite not adding up to 100%. This is because at the end of the report there is an extensive list of parts are less than 0.5% of the run   time individually. These go from line 407 to line1079 in the report with the runtime of lines 698-1079 being listed as 0.00%. My only question was "what the heck is std::abs(double)!?"   After much searching I realized that it was likely static_cast<size_t>(20000) because size_t is an unsigned int so the conversion probably uses abs. It was also in the right spot from the order of the report.
 
 
