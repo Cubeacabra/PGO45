@@ -1,1 +1,27 @@
-I found it odd that std::abs(double) was nearly 20% of our run time but I couldn't figure what that was in the code. I also found it intresting that the runtime for the get height and get length functions varied noticably (1.04% for height and 1.98% for length). I'll try and find more but I'll commit for now. 
+I found it odd that std::abs(double) was nearly 20% of our run time but I couldn't figure what that was in the code. I also found it intresting that the runtime for the get height and get length functions varied noticably (1.04% for height and 1.98% for length). Here is a condensed version of the perf report: Time splits
+94.43% spent in Dataset::sizeSimilarityCheck(std::vector<Crab, std::allocator<Crab> >&)
+	22.53% spent in std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+            	16.47%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const         
+               	 	4.88%--std::vector<Crab, std::allocator<Crab> >::size() const          
+				3.43%--std::vector<Crab, std::allocator<Crab> >::operator[](unsigned long)|          
+             19.97%--std::abs(double)
+             14.31%--Crab::operator!=(Crab const&) const
+               	7.97.95%--Crab::getCrabID() const 
+			  1.98%--Crab::getLength() const     
+              1.85%--Crab::getDiameter() const
+              1.04%--Crab::getHeight() const
+              0.53%--std::vector<Crab, std::allocator<Crab> >::_M_range_check(unsigned long) const
+1.63%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+              1.45%--void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+               	0.0.69%--std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_S_relocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+               		0.66%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+                                   		0.61%--std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >* std::__relocate_a_1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&)
+1.53%--Crab::Crab(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >)
+	1.23%--std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+		1.19%--double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+               |          
+0.54%--std::vector<Crab, std::allocator<Crab> >::at(unsigned long)
+
+These percentages seem consistent in the report despite not adding up to 100%. My only question is what the heck is std::abs(double)!? Even when using CTRL+F I can’t seem to find it.
+
+
