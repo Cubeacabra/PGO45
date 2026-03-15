@@ -1,8 +1,8 @@
 Roles:
-Data Scientist - Ethan McFadden
-Tester - 
-Instrumenter - 
-Dog Collar -
+1) Data Scientist - Ethan McFadden
+2) Tester - Nevan Gonzalez
+3) Instrumenter - Jonathon Flores
+4) Pogo Stick - Liam Samuelson
 
 
 __What the code does:__
