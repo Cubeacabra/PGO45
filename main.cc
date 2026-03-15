@@ -3,12 +3,15 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <ratio>
 #include <vector>
 #include <sstream>
 #include "/public/colors.h"
+#include <chrono>
 
 using namespace std;
-
+using namespace std::chrono;
+using sc = steady_clock;
 
 int main() {
 	vector<Crab> allCrabs;
@@ -25,6 +28,7 @@ int main() {
 
 	getline(file, currLine); //Skip 1st line, just labels the values
 	int currID = 0;
+	auto start = sc::now(); //start logging time
 	while(getline(file, currLine)) {
 	//	cout << "this line reached" << endl;
 		vector<string> params;
@@ -46,6 +50,9 @@ int main() {
 		}
 
 	}
+	auto end = sc::now(); //end logging time
+	cerr << "Loop_1:" << (duration<double, milli>(end - start)).count() << "ms" << endl; //print time of this loop
+
 	
 	Dataset crabSet(allCrabs);
 
@@ -57,6 +64,9 @@ int main() {
 	cout << "Calculating Crab Stats..." << endl;
 
 	//Run The Data Analysis Functions
+
+	auto start_2 = sc::now(); //start logging time
+
 	crabSet.sexStats();
 	crabSet.ageStats();
 	//for (int i = 0; i < 10; i++) {
@@ -64,6 +74,8 @@ int main() {
 	//	crabSet.weightSimilarityCheck(allCrabs);
 	
 //	}
+	auto end_2 = sc::now(); //end logging time
+	cerr << "Loop_2:" << (duration<double, milli>(end_2 - start_2)).count() << "ms:" << endl; //print time of this loop
 
 
 	//Print The Data
