@@ -7,7 +7,7 @@ SRCS = main.cc crab.cc dataset.cc
 # C++26 standard
 CXXFLAGS = -std=c++26
 
-all: A_asan B_no_opt C_O3_asan D_O3 D2_Ofast
+all: A_asan B_no_opt C_O3_asan D_O3 D2_Ofast 
 
 # A. Optimizer off, ASAN and UBSAN on  
 A_asan:
@@ -32,23 +32,26 @@ D2_Ofast:
 
 
 #PGO PROFILES (E, F, G)
-pgo_gen:
-	g++ $(SRCS) $(CXXFLAGS) -O3 -fprofile-generate -o $(NAME)_profiler
-
-# E. PGO, O3
-E_pgo: 
-	g++ $(SRCS) $(CXXFLAGS) -O3  -fprofile-use -o $(NAME)_E_pgo
+E_pgo:
+	$(MAKE) clean 
+	g++ $(SRCS) $(CXXFLAGS) -O3 -fprofile-generate -o $@
+	./$@
+	g++ $(SRCS) $(CXXFLAGS) -O3 -fprofile-use -o $@
 
 # F. PGO, LTO, O3
 F_pgo_lto: 
-	g++ $(SRCS) $(CXXFLAGS) -O3 -flto -fprofile-use -o $(NAME)_F_pgo_lto
+	g++ $(SRCS) $(CXXFLAGS) -O3 -flto -fprofile-use -o E_pgo
+	mv E_pgo $@
 
 # G. Likely, Unlikely
 G_likely: 
-	g++ $(SRCS) $(CXXFLAGS) -O3 -flto -fprofile-use -o $(NAME)_G_likely  
+	$(MAKE) clean
+	g++ $(SRCS) $(CXXFLAGS) -O3 -fprofile-generate -o $@
+	./$@
+	g++ $(SRCS) $(CXXFLAGS) -O3 -flto -fprofile-use -o $@ 
 
 #Phony Targets
-.PHONY: all A_asan B_no_opt C_O3_asan D_O3 D2_Ofast pgo_gen E_pgo F_pgo_lto G_likely clean 
+.PHONY: all A_asan B_no_opt C_O3_asan D_O3 D2_Ofast E_pgo F_pgo_lto G_likely clean 
 
 clean:
-	rm -f *.gcda *.gcno $(NAME)*
+	rm -f *.o *.gcda *.gcno a.out $(NAME)_* E_pgo F_pgo_lto G_likely
