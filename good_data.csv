@@ -1,0 +1,4 @@
+id,Sex,Length,Diameter,Height,Weight,Shucked Weight,Viscera Weight,Shell Weight,Age
+1,M,0.5,0.5,0.5,1.0,0.4,0.2,0.4,10
+2,F,0.4,0.4,0.4,0.8,0.3,0.1,0.4,8
+3,I,0.6,0.6,0.6,1.2,0.5,0.3,0.4,12

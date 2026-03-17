@@ -10,11 +10,17 @@
 using namespace std;
 
 
-int main() {
+int main(int argc, char* argv[]) {
 	vector<Crab> allCrabs;
 
+	string filename = "train_extended.csv";
+	if (argc > 1) {
+	filename = argv[1]; // Use provided argument if available
+	}
+
+	ifstream file(filename);
 	//ifstream file("CrabAgePrediction.csv");
-	ifstream file("train_extended.csv");
+	//ifstream file("train_extended.csv");
 	string currLine;
 
 	/*if(file) {

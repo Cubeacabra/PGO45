@@ -33,17 +33,30 @@ usePerf: main.o crab.o dataset.o
 	g++ -O3 -fno-omit-frame-pointer main.o crab.o dataset.o -o usePerf
 	#Run with: perf record -g usePerf
 	#add all the tests
+#Gcov and Tests with demo .csv files
+coverage:
+	g++ -O0 --coverage main.cc crab.cc dataset.cc -o genPGO
+	./genPGO
+	./genPGO good_data.csv
+	./genPGO bad_data.csv
+	./genPGO small_data.csv
+	./genPGO empty.csv
+	gcov genPGO-main.o
+	gcov genPGO-crab.o
+	gcov genPGO-dataset.o
+	rm -f std*.gcov iostream.gcov ostream.gcov bits*.gcov locale*.gcov
+	cat *.gcov > Report_test.txt
 #Making Object Files Is Normal
 main.o: main.cc crab.h dataset.h
-	g++ -g -c main.cc 
+	g++ -g -c -fprofile-generate -ftest-coverage main.cc 
 
 crab.o: crab.cc crab.h
-	g++ -c crab.cc
+	g++ -c -fprofile-generate -ftest-coverage crab.cc
 
 dataset.o: dataset.cc dataset.h crab.h
-	g++ -c dataset.cc
+	g++ -c -fprofile-generate -ftest-coverage dataset.cc
 
 #Clean
 clean:
-	rm -f *.o a.out *.gcda *.gcno *.gcov baseAsan baseNoAsan O3Asan O3NoAsan OFastNoAsan genPGO usePGO useLTO usePerf
+	rm -f *.o a.out *.gcda *.gcno *.gcov baseAsan baseNoAsan O3Asan O3NoAsan OFastNoAsan genPGO usePGO useLTO usePerf Report_test.txt
 	
