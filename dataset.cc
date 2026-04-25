@@ -5,6 +5,7 @@
 #include <cmath>
 #include "node.h"
 #include <algorithm>
+#include <omp.h>
 
 using namespace std;
 
@@ -72,7 +73,7 @@ void Dataset::sizeSimilarityCheck(vector<Crab>& crabsOneAge) {
 
 	//DEBUG: For the for loop at the bottom
 	//int currRun = 0;
-
+	#pragma omp parallel for collapse (2)
 	for (int i = 0; i < crabCount; i++) {
 		for (int j = 0; j < crabCount; j++) {
 			//Reference the crabs so not making unneccesary copies
@@ -114,7 +115,7 @@ void Dataset::weightSimilarityCheck(vector<Crab>& crabsOneAge) {
 
 	//DEBUG: For the for loop at the bottom
 	//int currRun = 0;
-
+	#pragma omp parallel for collapse(2)
 	for (int i = 0; i < crabCount; i++) {
 		for (int j = 0; j < crabCount; j++) {
 			//Reference the crabs so not making unneccesary copies
