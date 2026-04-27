@@ -81,7 +81,6 @@ int main() {
 	cout << "Crab Similarity" << endl;
 	setcolor(130,230,170);
 	crabSet.printSimilarity();
-
 	setcolor(255,255,255);
 	return 0;
 

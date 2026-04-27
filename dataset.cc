@@ -5,6 +5,10 @@
 #include <cmath>
 #include "node.h"
 #include <algorithm>
+#include <sys/wait.h>   // wait
+#include <unistd.h> //Pipe, Fork
+#include <sys/types.h> //PID (I think)
+#include <utility>
 
 using namespace std;
 
@@ -23,8 +27,8 @@ void Dataset::sexStats() {
 		} else if (c.getSex() == 'I') {
 			intersex++;
 		} else {
-	//		cout << "This was bad input we weren't supposed to get here" << endl;
-	//		cout << "input was " << c.getSex() << " on crab number " << c.getCrabID() << endl;
+			//		cout << "This was bad input we weren't supposed to get here" << endl;
+			//		cout << "input was " << c.getSex() << " on crab number " << c.getCrabID() << endl;
 		}
 	}
 }
@@ -58,49 +62,149 @@ void Dataset::checkSimilaritiesByAge() {
 //Find What Crabs Are Closest In Size (Least Difference Between Their Heights, Diameters, And Lengths)
 void Dataset::sizeSimilarityCheck(vector<Crab>& crabsOneAge) {
 	size_t crabCount = min(crabsOneAge.size(),static_cast<size_t>(20000));
-	
+
 
 	if (crabCount < 2) return;
 	SizeNode result;
-	
+
 	if (crabCount < 15000) {
 		result.minAge = crabsOneAge.at(0).getAge();
 		result.maxAge = crabsOneAge.at(0).getAge();
 	}
 
-	
 
-	//DEBUG: For the for loop at the bottom
-	//int currRun = 0;
 
-	for (int i = 0; i < crabCount; i++) {
-		for (int j = 0; j < crabCount; j++) {
-			//Reference the crabs so not making unneccesary copies
-			Crab& crab1 = crabsOneAge.at(i);
-			Crab& crab2 = crabsOneAge.at(j);
-			if (crab1 != crab2) { //Don't check crab with itself
-				double currDiff = abs(crab1.getLength() - crab2.getLength()) + abs(crab1.getHeight() - crab2.getHeight()) + abs(crab1.getDiameter() - crab2.getDiameter());
-				if (result.minSizeDiff > currDiff) { //Update minDiff if needed
-					result.minSizeDiff = currDiff;
-					result.minSizeDiffID1 = crab1.getCrabID();
-					result.minSizeDiffID2 = crab2.getCrabID();
-				} 
-				if (result.maxSizeDiff < currDiff) { //Update maxDiff if needed
-					result.maxSizeDiff = currDiff;
-					result.maxSizeDiffID1 = crab1.getCrabID();
-					result.maxSizeDiffID2 = crab2.getCrabID();
+
+	//PARALLEL VERSION
+
+	int pipeWriter[2]; //Size 2 array where accessing pipeWriter[0] lets you read, pipeWriter[1] lets you write. Basically communicate btwn parent/child processes from fork
+	if (pipe(pipeWriter) == -1) return; //Create the pipe but also exit if it fails
+
+	int numProcesses = 4;
+	int chunkSize = crabCount / 4;
+
+
+	for (int i = 0; i < numProcesses; i++) {
+		pid_t PID = fork();
+
+		if (PID == 0) { //Do CHILD Things
+			close(pipeWriter[0]); //Avoid bugs, child no need read;
+			SizeNode localDiff;
+
+			int startPoint = i * chunkSize;
+			int endPoint = (i + 1) * chunkSize;
+
+			result.minAge = crabsOneAge.at(startPoint).getAge();
+			result.maxAge = crabsOneAge.at(startPoint).getAge();
+
+			//Basically same loop as before, modified var names 
+
+
+			for (int i = 0; i < crabCount; i++) {
+				for (int j = startPoint; j < endPoint; j++) {
+					//Reference the crabs so not making unneccesary copies
+					Crab& crab1 = crabsOneAge.at(i);
+					Crab& crab2 = crabsOneAge.at(j);
+					if (crab1 != crab2) { //Don't check crab with itself
+						double currDiff = abs(crab1.getLength() - crab2.getLength()) + abs(crab1.getHeight() - crab2.getHeight()) + abs(crab1.getDiameter() - crab2.getDiameter());
+						if (localDiff.minSizeDiff > currDiff) { //Update minDiff if needed
+							localDiff.minSizeDiff = currDiff;
+							localDiff.minSizeDiffID1 = crab1.getCrabID();
+							localDiff.minSizeDiffID2 = crab2.getCrabID();
+							//Correct These Values Being Swapped From Parallel Stuff
+							if (localDiff.minSizeDiffID2 < localDiff.minSizeDiffID1) {
+								swap(localDiff.minSizeDiffID2, localDiff.minSizeDiffID1);
+							}
+						} 
+						if (localDiff.maxSizeDiff < currDiff) { //Update maxDiff if needed
+							localDiff.maxSizeDiff = currDiff;
+							localDiff.maxSizeDiffID1 = crab1.getCrabID();
+							localDiff.maxSizeDiffID2 = crab2.getCrabID();
+							//Correct These Values Being Swapped From Parallel Stuff
+							if (localDiff.maxSizeDiffID2 < localDiff.maxSizeDiffID1) {
+								swap(localDiff.maxSizeDiffID2, localDiff.maxSizeDiffID1);
+							}
+						}
+					}
 				}
 			}
-			//DEBUG: To see if it's running all trials, but be warned, this heeeeeecka slows runtime
-			//currRun++;
-			/*if (currRun % 1000 == 0) {
-				cout << "Trial " << currRun << "/" << crabCount*crabCount << endl;
-			}*/
+
+
+
+			//End old loop functionality
+
+			write(pipeWriter[1], &localDiff, sizeof(SizeNode)); //Write localDiff to the pipe
+			close(pipeWriter[1]); //close the pipe fully for the child
+			exit(0); //Child dont go farther or else will repeat the loop and have exponential processes of doom
 		}
 	}
-	sizeSimilarityResults.push_back(result);
-}
 
+
+	//PARENT Stuff Now
+	close(pipeWriter[1]); //Avoid bugs, parent no need write;
+	for (int i = 0; i < numProcesses; i++) {
+		SizeNode childDiff;
+		read(pipeWriter[0], &childDiff, sizeof(SizeNode)); //Read from the pipe into childMin;
+														   //Compare ChildDiff and ResultDiff (For Mins), update if needed
+		if (result.minSizeDiff > childDiff.minSizeDiff) {
+			result.minSizeDiff = childDiff.minSizeDiff;
+			result.minSizeDiffID1 = childDiff.minSizeDiffID1;
+			result.minSizeDiffID2 = childDiff.minSizeDiffID2;
+			//Correct These Values Being Swapped From Parallel Stuff
+			if (result.minSizeDiffID2 < result.minSizeDiffID1) {
+				swap(result.minSizeDiffID2, result.minSizeDiffID1);
+			}
+		}
+		//Compare ChildDiff and ResultDiff (For Maxes), update if needed
+		if (result.maxSizeDiff < childDiff.maxSizeDiff) { //Update Result maxDiff if needed
+			result.maxSizeDiff = childDiff.maxSizeDiff;
+			result.maxSizeDiffID1 = childDiff.maxSizeDiffID1;
+			result.maxSizeDiffID2 = childDiff.maxSizeDiffID2;
+			//Correct These Values Being Swapped From Parallel Stuff
+			if (result.minSizeDiffID2 < result.minSizeDiffID1) {
+				swap(result.minSizeDiffID2, result.minSizeDiffID1);
+			}
+		}
+		for (int i = 0; i < numProcesses; i++)
+			wait(NULL); // Wait for children & free their resources
+	}
+
+	sizeSimilarityResults.push_back(result);
+}	
+
+/*
+
+//DEBUG: For the for loop at the bottom
+//int currRun = 0;
+
+for (int i = 0; i < crabCount; i++) {
+for (int j = 0; j < crabCount; j++) {
+//Reference the crabs so not making unneccesary copies
+Crab& crab1 = crabsOneAge.at(i);
+Crab& crab2 = crabsOneAge.at(j);
+if (crab1 != crab2) { //Don't check crab with itself
+double currDiff = abs(crab1.getLength() - crab2.getLength()) + abs(crab1.getHeight() - crab2.getHeight()) + abs(crab1.getDiameter() - crab2.getDiameter());
+if (result.minSizeDiff > currDiff) { //Update minDiff if needed
+result.minSizeDiff = currDiff;
+result.minSizeDiffID1 = crab1.getCrabID();
+result.minSizeDiffID2 = crab2.getCrabID();
+} 
+if (result.maxSizeDiff < currDiff) { //Update maxDiff if needed
+result.maxSizeDiff = currDiff;
+result.maxSizeDiffID1 = crab1.getCrabID();
+result.maxSizeDiffID2 = crab2.getCrabID();
+}
+}
+//DEBUG: To see if it's running all trials, but be warned, this heeeeeecka slows runtime
+//currRun++;
+//if (currRun % 1000 == 0) {
+//cout << "Trial " << currRun << "/" << crabCount*crabCount << endl;
+// }
+}
+}
+sizeSimilarityResults.push_back(result);
+}
+*/
 //Find What Crabs Are Closest In Weight (Their Total Weight, Not Shucked Weight/Viscera Weight/Shell Weight)
 void Dataset::weightSimilarityCheck(vector<Crab>& crabsOneAge) {
 	size_t crabCount = min(crabsOneAge.size(),static_cast<size_t>(20000));
@@ -126,20 +230,20 @@ void Dataset::weightSimilarityCheck(vector<Crab>& crabsOneAge) {
 					result.minWeightDiff = currDiff;
 					result.minWeightDiffID1 = crab1.getCrabID();
 					result.minWeightDiffID2 = crab2.getCrabID();
-						
+
 				} 
 				if (result.maxWeightDiff < currDiff) { //Update maxDiff if needed
 					result.maxWeightDiff = currDiff;
 					result.maxWeightDiffID1 = crab1.getCrabID();
 					result.maxWeightDiffID2 = crab2.getCrabID();
-						
+
 				}
 			}
 			//DEBUG: To see if it's running all trials, but be warned, this heeeeeecka slows runtime
 			//currRun++;
 			/*if (currRun % 1000 == 0) {
-				cout << "Trial " << currRun << "/" << crabCount*crabCount << endl;
-			}*/
+			  cout << "Trial " << currRun << "/" << crabCount*crabCount << endl;
+			  }*/
 		}
 	}
 	weightSimilarityResults.push_back(result);
@@ -269,23 +373,23 @@ void Dataset::printSimilarity() {
 			setcolor(110, 215, 225);
 			cout << sizeSimilarityResults.at(resultIndex).maxSizeDiffID2 << endl;
 
-	/*		//Min Difference For Weight
-			setcolor(130,230,170);
-			cout << "The minimum difference";
-			setcolor(110, 215, 225);
-			cout << " (in weight) " ;
-			setcolor(130,230,170);
-			cout << " between crabs is ";
-			setcolor(110, 215, 225);
-			cout << weightSimilarityResults.at(resultIndex).minWeightDiff;
-			setcolor(130,230,170);
-			cout << " between crabs " ;
-			setcolor(110, 215, 225);
-			cout <<  weightSimilarityResults.at(resultIndex).minWeightDiffID1;
-			setcolor(130,230,170);
-			cout << " and ";
-			setcolor(110, 215, 225);
-			cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
+			/*		//Min Difference For Weight
+					setcolor(130,230,170);
+					cout << "The minimum difference";
+					setcolor(110, 215, 225);
+					cout << " (in weight) " ;
+					setcolor(130,230,170);
+					cout << " between crabs is ";
+					setcolor(110, 215, 225);
+					cout << weightSimilarityResults.at(resultIndex).minWeightDiff;
+					setcolor(130,230,170);
+					cout << " between crabs " ;
+					setcolor(110, 215, 225);
+					cout <<  weightSimilarityResults.at(resultIndex).minWeightDiffID1;
+					setcolor(130,230,170);
+					cout << " and ";
+					setcolor(110, 215, 225);
+					cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
 
 
 			//Max Difference For Weight
@@ -305,7 +409,7 @@ void Dataset::printSimilarity() {
 			cout << " and ";
 			setcolor(110, 215, 225);
 			cout << weightSimilarityResults.at(resultIndex).minWeightDiffID2 << endl;
-	*/		resultIndex++;
+			*/		resultIndex++;
 		}
 	}
 }
